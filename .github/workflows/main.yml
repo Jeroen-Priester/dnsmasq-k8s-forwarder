@@ -80,12 +80,12 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta_masq.outputs.tags }}
           labels: ${{ steps.meta_masq.outputs.labels }}
-      - name: Docker Hub Description
-        if: github.event_name != 'pull_request'
-        uses: peter-evans/dockerhub-description@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: justvodka/dnsmasq-k8s
-          readme-filepath: ./README.md
-          short-description: "DNS forwarder based on dnsmasq for use on k8s "
+      # - name: Docker Hub Description
+      #   if: github.event_name != 'pull_request'
+      #   uses: peter-evans/dockerhub-description@v3
+      #   with:
+      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+      #     password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      #     repository: justvodka/dnsmasq-k8s
+      #     readme-filepath: ./README.md
+      #     short-description: "DNS forwarder based on dnsmasq for use on k8s "
