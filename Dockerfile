@@ -5,4 +5,7 @@ RUN echo "*** install dnsmasq ***" && \
     echo "comment out \"local-service\" to allow dns requests from non local networks" && \
     sed -i 's/local-service/#local-service/' /etc/dnsmasq.conf
 
-ENTRYPOINT ["dnsmasq","--log-facility=-","--keep-in-foreground"]
+EXPOSE 5353/tcp
+EXPOSE 5353/udp
+
+ENTRYPOINT ["dnsmasq","--log-facility=-","--keep-in-foreground","--port=5353"]
